@@ -1,5 +1,7 @@
 # almost-blockchain-two
 
+![go workflow](https://github.com/zhooda/almost-blockchain-two/workflows/Go/badge.svg)
+
 almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zhooda/almost-blockchain), a half-baked blockchain and cryptocurrency I created as my final project for high school computer science. 
 
 ## Getting Started
