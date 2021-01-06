@@ -13,6 +13,10 @@ To run almost-blockchain-two you will need:
 
 - [golang](https://golang.org/) v1.15+
 
+On Windows you will also need:
+
+- [chocolatey](https://chocolatey.org/)
+
 ### Installation
 
 Clone the repository or checkout with subversion to get a copy of almost-blockchain-two
@@ -41,6 +45,8 @@ $ make run
 ### Windows
 
 ```powershell
+PS> choco install make
+
 PS> cd .\path\to\almost-blockchain-two
 
 # Build and run
