@@ -7,15 +7,12 @@ import (
 )
 
 // BlockChain contains slice of Block
-// blocks:
 type BlockChain struct {
 	blocks []*Block
 }
 
-// Block contains Hash, Data, PrevHash
-// Hash:     sha256 sum of current block as byte slice
-// Data:     string of data inside block as byte slice
-// PrevHash: sha256 sum of previous block as byte slice
+// Block contains sha256 sum of self, string data,
+// and sha256 sum of previous block
 type Block struct {
 	Hash     []byte // hash of current block
 	Data     []byte // data inside the block
