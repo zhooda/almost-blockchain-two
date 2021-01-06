@@ -6,12 +6,16 @@ import (
 	"fmt"
 )
 
-// BlockChain structure type
+// BlockChain contains slice of Block
+// blocks:
 type BlockChain struct {
 	blocks []*Block
 }
 
-// Block structure type
+// Block contains Hash, Data, PrevHash
+// Hash:     sha256 sum of current block as byte slice
+// Data:     string of data inside block as byte slice
+// PrevHash: sha256 sum of previous block as byte slice
 type Block struct {
 	Hash     []byte // hash of current block
 	Data     []byte // data inside the block
