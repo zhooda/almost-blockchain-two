@@ -39,6 +39,7 @@ $ cd ./path/to/almost-blockchain-two
 # Build and run
 $ make
 $ ./bin/abc2
+$ make clean
 
 # OR run without building
 $ make run
