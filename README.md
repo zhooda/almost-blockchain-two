@@ -23,11 +23,33 @@ $ git clone https://github.com/zhooda/almost-blockchain-two
 
 ## Usage
 
-Run the very basic chain that currently exists!
+Build and run the very basic chain that currently exists!
+
+### Linux
 
 ```bash
-$ cd path/to/almost-blockchain-two
-$ go run src/main.go
+$ cd ./path/to/almost-blockchain-two
+
+# Build and run
+$ make
+$ ./bin/abc2
+
+# OR run without building
+$ make run
+```
+
+### Windows
+
+```powershell
+PS> cd .\path\to\almost-blockchain-two
+
+# Build and run
+PS> make
+PS> .\bin\abc2.exe
+PS> make clean
+
+# OR run without building
+PS> make run
 ```
 
 ## License
