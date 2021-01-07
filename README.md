@@ -29,36 +29,38 @@ $ git clone https://github.com/zhooda/almost-blockchain-two
 
 ## Usage
 
-Build and run the very basic chain that currently exists!
+Build and run the very basic chain that currently exists! Trying to use `go run src/main.go` or `go build src/main.go` will not work becuase of idiosyncrasies with go modules and folder structures that I dont understand yet.
 
-### Linux
+#### Linux/macOS
 
 ```bash
 $ cd ./path/to/almost-blockchain-two
 
-# Build and run
+# Build and run manually
 $ make
-$ ./bin/abc2
+$ ./bin/abc2 print
+$ ./bin/abc2 add -block "this is some block data"
 $ make clean
 
-# OR run without building
-$ make run
+# OR build and run with makefile
+$ make run ARGS="print"
 ```
 
-### Windows
+#### Windows
 
 ```powershell
 PS> choco install make
 
 PS> cd .\path\to\almost-blockchain-two
 
-# Build and run
+# Build and run manually
 PS> make
-PS> .\bin\abc2.exe
+PS> .\bin\abc2.exe print
+PS> .\bin\abc2.exe add -block "this is some block data"
 PS> make clean
 
-# OR run without building
-PS> make run
+# OR build and run with makefile
+PS> make run ARGS="print"
 ```
 
 ## License
