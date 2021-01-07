@@ -53,9 +53,11 @@ func InitBlockChain() *BlockChain {
 		if _, err := txn.Get([]byte("lh")); err == badger.ErrKeyNotFound {
 			// If no chan exists in the database, create a
 			// new chain with genesis
-			fmt.Println("no existing blockchain found")
+			fmt.Println("no existing chain found\ncreating genesis for new chain")
+			fmt.Println()
 			genesis := Genesis()
-			fmt.Println("genesis proved")
+			fmt.Println("genesis proved\nnew blockchain instantiated")
+			fmt.Println()
 			err = txn.Set(genesis.Hash, genesis.Serialize())
 
 			err = txn.Set([]byte("lh"), genesis.Hash)

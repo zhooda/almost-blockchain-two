@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"path/filepath"
 	"runtime"
 	"strconv"
 
@@ -30,7 +29,8 @@ func (cli *CommandLine) validateArgs() {
 
 func (cli *CommandLine) addBlock(data string) {
 	cli.blockchain.AddBlock(data)
-	fmt.Println("added block.")
+	fmt.Println("block proved and added to chain")
+	fmt.Println()
 }
 
 func (cli *CommandLine) printChain() {
@@ -41,7 +41,7 @@ func (cli *CommandLine) printChain() {
 
 		fmt.Printf("Prev. hash: %x\n", block.PrevHash)
 		fmt.Printf("Data: %s\n", block.Data)
-		fmt.Printf("Hash: %x\n\n", block.Hash)
+		fmt.Printf("Hash: %x\n", block.Hash)
 		pow := blockchain.NewProof(block)
 		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
 		fmt.Println()
@@ -86,13 +86,6 @@ func (cli *CommandLine) run() {
 
 func main() {
 	defer os.Exit(0)
-
-	ex, err := os.Executable()
-	if err != nil {
-		panic(err)
-	}
-	exPath := filepath.Dir(ex)
-	fmt.Printf("executable directory: %s\n", exPath)
 
 	chain := blockchain.InitBlockChain()
 	defer chain.Database.Close()
