@@ -1,8 +1,17 @@
-# almost-blockchain-two
+<div style="text-align: center">
+<h1 style="text-decoration:">almost-blockchain-two</h1>
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/zhooda/almost-blockchain-two/Go?style=flat-square">
+<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/zhooda/almost-blockchain-two?color=crimson&label=lines%20of%20code&style=flat-square">
+</div>
 
-![go workflow](https://github.com/zhooda/almost-blockchain-two/workflows/Go/badge.svg)
+<div style="margin-bottom: 2%"></div>
 
 almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zhooda/almost-blockchain), a half-baked blockchain and cryptocurrency I created as my final project for high school computer science. 
+
+<div style="margin-bottom: 2%"></div>
+
+---
+<div style="margin-bottom: 2%"></div>
 
 ## Getting Started
 
