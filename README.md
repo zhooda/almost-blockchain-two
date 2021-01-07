@@ -9,9 +9,6 @@ almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zh
 
 <div style="margin-bottom: 2%"></div>
 
----
-<div style="margin-bottom: 2%"></div>
-
 ## Getting Started
 
 These instructions *should* get you a copy of the project up and running
