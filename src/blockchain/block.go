@@ -1,9 +1,10 @@
 package blockchain
 
-// BlockChain contains slice of Block
-type BlockChain struct {
-	Blocks []*Block
-}
+import (
+	"bytes"
+	"encoding/gob"
+	"log"
+)
 
 // Block contains sha256 sum of self, string data,
 // and sha256 sum of previous block
@@ -28,27 +29,41 @@ func CreateBlock(data string, prevHash []byte) *Block {
 	return block
 }
 
-// AddBlock adds new block to the chain
-// is a method for BlockChain
-// data: string of data to be stored in block
-func (chain *BlockChain) AddBlock(data string) {
-	// get previous block in the chain
-	prevBlock := chain.Blocks[len(chain.Blocks)-1]
-
-	// create new block
-	new := CreateBlock(data, prevBlock.Hash)
-
-	// add new block to the chain
-	chain.Blocks = append(chain.Blocks, new)
-}
-
 // Genesis returns genesis block in the chain
 func Genesis() *Block {
 	return CreateBlock("Genesis", []byte{})
 }
 
-// InitBlockChain returns BlockChain with genesis Block
-// MARK: Rename this to NewBlockChain later to comply with Go style guides
-func InitBlockChain() *BlockChain {
-	return &BlockChain{[]*Block{Genesis()}}
+// Serialize will serialize a block for storage in
+// the badger database
+func (b *Block) Serialize() []byte {
+	var res bytes.Buffer
+	encoder := gob.NewEncoder(&res)
+
+	err := encoder.Encode(b)
+
+	Handle(err)
+
+	return res.Bytes()
+}
+
+// Deserialize will deserialize a byte slice from
+// the database into a block struct
+func Deserialize(data []byte) *Block {
+	var block Block
+
+	decoder := gob.NewDecoder(bytes.NewReader(data))
+
+	err := decoder.Decode(&block)
+
+	Handle(err)
+
+	return &block
+}
+
+// Handle will panic if an error is not nil
+func Handle(err error) {
+	if err != nil {
+		log.Panic(err)
+	}
 }
