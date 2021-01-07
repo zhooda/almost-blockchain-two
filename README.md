@@ -1,8 +1,7 @@
-<div style="text-align: center">
-<h1 style="text-decoration:">almost-blockchain-two</h1>
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/zhooda/almost-blockchain-two/Go?style=flat-square">
-<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/zhooda/almost-blockchain-two?color=crimson&label=lines%20of%20code&style=flat-square">
-</div>
+<h1 align="center">almost-blockchain-two</h1>
+<p align="center"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/zhooda/almost-blockchain-two/Go?style=flat-square">
+<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/zhooda/almost-blockchain-two?color=crimson&label=lines%20of%20code&style=flat-square"></p>
+
 
 <div style="margin-bottom: 2%"></div>
 
