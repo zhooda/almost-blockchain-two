@@ -9,6 +9,19 @@ almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zh
 
 <div style="margin-bottom: 2%"></div>
 
+## Roadmap
+
+- [x] CLI to interact with chain
+- [x] Proof of work and validation
+- [x] Blockchain persistence with key-value store
+- [ ] Transaction inputs and outputs
+- [ ] Wallet module
+- [ ] Digital signing, locking, and verification (via wallet module)
+- [ ] Unspent Transaction Output (UTXO) persistence layer
+- [ ] Merkle tree
+- [ ] Networking module
+- [ ] Variable PoW difficulty and reward distribution
+
 ## Getting Started
 
 These instructions *should* get you a copy of the project up and running
