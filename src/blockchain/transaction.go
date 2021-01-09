@@ -16,23 +16,6 @@ type Transaction struct {
 	Outputs []TxOutput
 }
 
-// TxOutput contains value in tokens
-// and key needed to unlock tokens
-type TxOutput struct {
-	Value  int
-	PubKey string
-}
-
-// TxInput is a reference to a previous
-// output. It references the Transaction
-// that contains the output, the index where
-// the output is, and the signature
-type TxInput struct {
-	ID  []byte
-	Out int
-	Sig string
-}
-
 // SetID sets a transaction ID to its sha256 hash
 func (tx *Transaction) SetID() {
 	var encoded bytes.Buffer
@@ -98,14 +81,4 @@ func NewTransaction(from, to string, amount int, chain *BlockChain) *Transaction
 // IsCoinbase verifies a coinbase transaction
 func (tx *Transaction) IsCoinbase() bool {
 	return len(tx.Inputs) == 1 && len(tx.Inputs[0].ID) == 0 && tx.Inputs[0].Out == -1
-}
-
-// CanUnlock verifies if a recipient can unlock a TxInput
-func (in *TxInput) CanUnlock(data string) bool {
-	return in.Sig == data
-}
-
-// CanBeUnlocked verifies if a TxOutput can be unlocked by a recipient
-func (out *TxOutput) CanBeUnlocked(data string) bool {
-	return out.PubKey == data
 }
