@@ -79,6 +79,18 @@ $ ./bin/abc2 create-chain --address "address1"
 blockchain already exists
 ```
 
+_`create-wallet`_ - creates a new wallet
+```bash
+$ ./bin.abc2 create-wallet
+new address is: aBc1E8Npk8Vozw26ga8wARywfMCS7yJW43nUz
+```
+
+_`list-addrs`_ - lists all wallet addresses in wallet file
+```bash
+$ ./bin/abc2 list-addrs
+aBc1E8Npk8Vozw26ga8wARywfMCS7yJW43nUz
+```
+
 _`get-balance`_ — returns coin balance of address
 ```bash
 $ ./bin/abc2 get-balance --address "address0"
