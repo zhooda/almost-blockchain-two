@@ -60,6 +60,9 @@ PS> cd .\almost-blockchain-two\src
 PS> go build -v -o ..\bin\abc2.exe main.go
 PS> cd ..
 ```
+
+When running abc2 on windows using the commands outlined below, replace `./bin/abc2` with `.\bin\abc2.exe` and you'll be good to go :)
+
 </details>
 
 ---
