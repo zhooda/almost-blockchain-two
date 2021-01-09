@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/zhooda/almost-blockchain-two/blockchain"
+	"github.com/zhooda/almost-blockchain-two/wallet"
 )
 
 // CommandLine should not be an exported
@@ -19,8 +20,10 @@ type CommandLine struct{}
 
 func (cli *CommandLine) printUsage() {
 	fmt.Println("Usage:")
-	fmt.Println("  get-balance -address ADDRESS - get the balance for an address")
 	fmt.Println("  create-chain -address ADDRESS - creates a blockchain")
+	fmt.Println("  create-wallet - creates a new wallet")
+	fmt.Println("  get-balance -address ADDRESS - get the balance for an address")
+	fmt.Println("  list-addrs - lists addresses in wallet file")
 	fmt.Println("  print - prints the blocks in the chain")
 	fmt.Println("  send -from FROM -to TO -amount AMOUNT - send amount of tokens to an address")
 }
@@ -30,6 +33,23 @@ func (cli *CommandLine) validateArgs() {
 		cli.printUsage()
 		runtime.Goexit()
 	}
+}
+
+func (cli *CommandLine) listAddresses() {
+	wallets, _ := wallet.CreateWallets()
+	addresses := wallets.GetAllAddresses()
+
+	for _, address := range addresses {
+		fmt.Println(address)
+	}
+}
+
+func (cli *CommandLine) createWallet() {
+	wallets, _ := wallet.CreateWallets()
+	address := wallets.AddWallet()
+	wallets.SaveFile()
+
+	fmt.Printf("new address is: %s\n", address)
 }
 
 func (cli *CommandLine) printChain() {
@@ -89,6 +109,8 @@ func (cli *CommandLine) Run() {
 	createBlockchainCmd := flag.NewFlagSet("create-chain", flag.ExitOnError)
 	sendCmd := flag.NewFlagSet("send", flag.ExitOnError)
 	printChainCmd := flag.NewFlagSet("print-chain", flag.ExitOnError)
+	createWalletCmd := flag.NewFlagSet("create-wallet", flag.ExitOnError)
+	listAddressesCmd := flag.NewFlagSet("list-addrs", flag.ExitOnError)
 
 	getBalanceAddress := getBalanceCmd.String("address", "", "the address to get balance for")
 	createBlockchainAddress := createBlockchainCmd.String("address", "", "the address to send the genesis block reward to")
@@ -104,6 +126,16 @@ func (cli *CommandLine) Run() {
 		}
 	case "create-chain":
 		err := createBlockchainCmd.Parse(os.Args[2:])
+		if err != nil {
+			log.Panic(err)
+		}
+	case "list-addrs":
+		err := listAddressesCmd.Parse(os.Args[2:])
+		if err != nil {
+			log.Panic(err)
+		}
+	case "create-wallet":
+		err := createWalletCmd.Parse(os.Args[2:])
 		if err != nil {
 			log.Panic(err)
 		}
@@ -136,6 +168,14 @@ func (cli *CommandLine) Run() {
 			runtime.Goexit()
 		}
 		cli.createBlockChain(*createBlockchainAddress)
+	}
+
+	if createWalletCmd.Parsed() {
+		cli.createWallet()
+	}
+
+	if listAddressesCmd.Parsed() {
+		cli.listAddresses()
 	}
 
 	if printChainCmd.Parsed() {
