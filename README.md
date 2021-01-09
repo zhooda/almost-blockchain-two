@@ -15,7 +15,7 @@ almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zh
 - [x] Proof of work and validation
 - [x] Blockchain persistence with key-value store
 - [x] Transaction inputs and outputs
-- [ ] Wallet module
+- [x] Wallet module
 - [ ] Digital signing, locking, and verification (via wallet module)
 - [ ] Unspent Transaction Output (UTXO) persistence layer
 - [ ] Merkle tree
