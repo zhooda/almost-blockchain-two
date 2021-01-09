@@ -57,7 +57,7 @@ $ make
 ```powershell
 PS> git clone https://github.com/zhooda/almost-blockchain-two
 PS> cd .\almost-blockchain-two\src
-PS> go build -v -o ..\bin\abc2.exe
+PS> go build -v -o ..\bin\abc2.exe main.go
 PS> cd ..
 ```
 </details>
