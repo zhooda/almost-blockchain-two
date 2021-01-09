@@ -21,7 +21,6 @@ func (cli *CommandLine) printUsage() {
 	fmt.Println("Usage:")
 	fmt.Println("  get-balance -address ADDRESS - get the balance for an address")
 	fmt.Println("  create-chain -address ADDRESS - creates a blockchain")
-	fmt.Println("  add -block BLOCK_DATA - add a block to the chain")
 	fmt.Println("  print - prints the blocks in the chain")
 	fmt.Println("  send -from FROM -to TO -amount AMOUNT - send amount of tokens to an address")
 }
