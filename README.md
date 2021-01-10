@@ -1,6 +1,7 @@
 <h1 align="center">almost-blockchain-two</h1>
-<p align="center"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/zhooda/almost-blockchain-two/Go?style=flat-square">
-<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/zhooda/almost-blockchain-two?color=crimson&label=lines%20of%20code&style=flat-square"></p>
+<p align="center"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/zhooda/almost-blockchain-two/Go?style=flat">
+<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/zhooda/almost-blockchain-two?color=crimson&label=lines%20of%20code&style=flat">
+<img alt="go report card" src="https://goreportcard.com/badge/github.com/zhooda/almost-blockchain-two"></p>
 
 
 <div style="margin-bottom: 2%"></div>
@@ -11,12 +12,12 @@ almost-blockchain-two is the sequel to [almost-blockchain](https://github.com/zh
 
 ## Roadmap
 
-- [x] CLI to interact with chain
-- [x] Proof of work and validation
-- [x] Blockchain persistence with key-value store
-- [x] Transaction inputs and outputs
-- [x] Wallet module
-- [x] Digital signing, locking, and verification (via wallet module)
+- [x] ~~CLI to interact with chain~~
+- [x] ~~Proof of work and validation~~
+- [x] ~~Blockchain persistence with key-value store~~
+- [x] ~~Transaction inputs and outputs~~
+- [x] ~~Wallet module~~
+- [x] ~~Digital signing, locking, and verification (via wallet module)~~
 - [ ] Unspent Transaction Output (UTXO) persistence layer
 - [ ] Merkle tree
 - [ ] Networking module
@@ -110,13 +111,18 @@ success!
 _`print`_ — prints out full chain sorted by most recent block
 ```
 $ ./bin/abc2 print
-Prev. hash: 00000c2d03f1de1fafee297c1efed3352dc5fec5ae2ac28de036929d78f2b741
-Hash: 00000191887c18d424ea139f1a8fdfb95348882127b247583084f24333b33aab
+Prev. hash:        
+Hash: 00000e9028f6a1427bf73f31db8affe9a76a20d5780772ff130fc19219c66d01
 PoW: true
-
-Prev. hash:
-Hash: 00000c2d03f1de1fafee297c1efed3352dc5fec5ae2ac28de036929d78f2b741
-PoW: true
+--- Transaction 997c4c58d83f329b08fab15f3e678f289b69fb189c30440720abb80eb482a116:
+     Input 0:
+       TXID:
+       Out:       -1
+       Signature:
+       PubKey:    4669727374205472616e73616374696f6e2066726f6d2047656e65736973
+     Output 0:
+       Value:  100
+       Script: 9c856302277d6eea6af195860093690d43d0c235
 ```
 
 ## License
